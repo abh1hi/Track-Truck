@@ -1,0 +1,6 @@
+{
+  "appId": "com.track.truck",
+  "appName": "TrackTruckEmployee",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
