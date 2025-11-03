@@ -1,14 +1,16 @@
-# GitHub Codespaces dev container for Track-Truck
 {
-  "name": "Track-Truck Dev",
+  "name": "Track-Truck Dev (DinD)",
   "dockerComposeFile": ["../docker-compose.yml"],
   "service": "api",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
   "shutdownAction": "stopCompose",
   "forwardPorts": [3000, 5000, 27017],
   "postCreateCommand": "bash .devcontainer/postCreate.sh",
-  "remoteUser": "node",
+  "postStartCommand": "bash .devcontainer/postStart.sh",
   "features": {
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+      "moby": true
+    },
     "ghcr.io/devcontainers/features/node:1": {
       "version": "18"
     }

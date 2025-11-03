@@ -1,16 +1,10 @@
+# Using Docker-outside-of-Docker (dood) feature
+# No additional setup beyond dependency install
 #!/usr/bin/env bash
 set -e
 
-# Install dependencies
-if [ -d backend ]; then
-  cd backend && npm ci || npm install && cd -
-fi
-if [ -d owner-dashboard ]; then
-  cd owner-dashboard && npm ci || npm install && cd -
+if [ -f .env.example ] && [ ! -f .env ]; then
+  cp .env.example .env
 fi
 
-# Show helpful info
-echo "\nDev container ready. Useful commands:"
-echo "- docker compose up -d    # start services"
-echo "- curl http://localhost:5000/api/health"
-echo "- open http://localhost:3000"
+echo "postCreate finished. You can now run: docker compose up -d --build"
